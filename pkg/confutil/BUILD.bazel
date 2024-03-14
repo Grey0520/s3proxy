@@ -1,0 +1,49 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("//tools/rules/docs:defs.bzl", "docs_chapter")
+load("//tools/rules/go:defs.bzl", "go_test")
+
+package(default_visibility = ["//visibility:public"])
+
+go_library(
+    name = "confutil",
+    srcs = [
+        "errors.go",
+        "field.go",
+        "field_types.go",
+        "manager.go",
+        "mapstructure.go",
+        "reflect.go",
+        "viper.go",
+    ],
+    importpath = "tencent.com/libs/go/confutil",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_github_mitchellh_mapstructure//:go_default_library",
+        "@com_github_spf13_viper//:go_default_library",
+        "@in_gopkg_yaml_v3//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "confutil_test",
+    srcs = [
+        "field_types_test.go",
+        "reflect_test.go",
+        "viper_test.go",
+    ],
+    embed = [":confutil"],
+    deps = [
+        "@in_gopkg_yaml_v3//:go_default_library",
+        "@io_k8s_sigs_yaml//:go_default_library",
+    ],
+)
+
+docs_chapter(
+    name = "docs",
+    srcs = [
+        # do not sort,
+    ],
+    index = "README.md",
+    visibility = ["//visibility:public"],
+    deps = [],
+)

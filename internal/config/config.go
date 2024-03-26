@@ -12,6 +12,7 @@ type CloudsConfig struct {
 	Endpoint   string           `env:"ENDPOINT"`
 	Appid      string           `env:"APPID"`
 	Key        string           `env:"KEY"`
+	Region     string           `env:"REGION"`
 	Credential string           `env:"CREDENTIAL"`
 	Filesystem FilesystemConfig `envPrefix:"FILESYSTEM_"`
 }

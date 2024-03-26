@@ -13,5 +13,8 @@ func main() {
 		log.Fatal("failed to load configuration:", err)
 	}
 	log.Print(config.Cfg)
+
+	// 2. 资源初始化
+
 	return
 }

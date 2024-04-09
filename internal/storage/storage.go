@@ -23,6 +23,8 @@ func NewStorageProvider(cfg config.Config) (StorageProvider, error) {
 	switch cfg.Cloud.Provider {
 	case "aws":
 		return NewAWSStore(cfg.Cloud.Identity, cfg.Cloud.Key, cfg.Cloud.Region)
+	case "local":
+		return NewLFSStore(cfg.Cloud.Filesystem.Basedir)
 	default:
 		return nil, nil
 	}

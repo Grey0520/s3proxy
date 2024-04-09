@@ -1,7 +1,6 @@
 package storage
 
 import (
-	"bytes"
 	"context"
 	"encoding/xml"
 	"fmt"
@@ -244,16 +243,11 @@ func (store *AWSStore) GetObject(bucketName, objectKey string) (*Object, error) 
 
 	defer r.Close()
 
-	data, err := io.ReadAll(r)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read object: %v", err)
-	}
-
 	return &Object{
 		Size:         r.Size(),
 		LastModified: r.ModTime(),
 		ContentType:  r.ContentType(),
-		Data:         bytes.NewReader(data),
+		Data:         r,
 	}, nil
 }
 

@@ -8,11 +8,11 @@ import (
 
 // Object 表示S3中存储的一个对象，包括其元数据和数据内容。
 type Object struct {
-	Key          string    // 对象的键（文件名）
-	Size         int64     // 对象的大小，以字节为单位
-	LastModified time.Time // 对象最后被修改的时间
-	ContentType  string    // 对象的MIME类型
-	Data         io.Reader // 对象的数据流
+	Key          string        // 对象的键（文件名）
+	Size         int64         // 对象的大小，以字节为单位
+	LastModified time.Time     // 对象最后被修改的时间
+	ContentType  string        // 对象的MIME类型
+	Data         io.ReadCloser // 对象的数据流
 }
 
 // ListAllMyBucketsResult 是 GET / 的根 xml 元素

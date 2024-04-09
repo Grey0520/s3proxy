@@ -1,16 +1,15 @@
 s3proxy:
-  endpoint: 127.0.0.1:5080
+  endpoint: 0.0.0.0:5080
   secureEndpoint: https://127.0.0.1:5443
 
 cloud:
   provider: local
-  endpoint: does'n need
-  identity: dn
-  key: dn
-  appid: dn
-  credential: dn
+  endpoint: No Need
+  identity: nn
+  key: nn
+  appid: nn
+  region: nn
+  credential: nn
   filesystem:
-    basedir: /tmp/s3store
-
+    basedir: /tmp/buckets
 # 更改配置文件 config.yaml 后， 需要更改 internal/config/config.go
-# 注意：这是一份示例文件

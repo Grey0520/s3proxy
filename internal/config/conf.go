@@ -25,7 +25,7 @@ func LoadConfig(configPath string) error {
 	} else {
 		// 没有输入地址，则在程序目录搜索 config.yaml
 		if err := Manager.SearchInFile(
-			"config", "yaml", "./configs/"); err != nil {
+			"config", "yaml", "./"); err != nil {
 			return fmt.Errorf("read config from file error: %w", err)
 		}
 	}

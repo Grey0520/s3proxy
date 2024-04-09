@@ -1,6 +1,7 @@
 FROM golang:1.22-alpine AS builder
 
-ENV GOPROXY=https://mirrors.cloud.tencent.com/go/
+ENV GOPROXY=https://proxy.golang.org,direct
+
 
 WORKDIR /app
 
